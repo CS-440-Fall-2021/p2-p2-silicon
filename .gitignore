@@ -5,6 +5,7 @@ auto/
 *.log
 *.out
 *.pdf
+*.o
 
 *.DS_Store
 

@@ -5,7 +5,7 @@
 #include "../utilities/ShadeInfo.hpp"
 #include "../utilities/Constants.hpp"
 
-World::World() : camera_ptr(nullptr), sampler_ptr(nullptr)
+World::World() : camera_ptr(nullptr), sampler_ptr(nullptr), tracer_ptr(nullptr)
 {
 }
 

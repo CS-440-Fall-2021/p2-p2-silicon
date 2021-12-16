@@ -21,6 +21,7 @@ class Geometry;
 class Ray;
 class Sampler;
 class ShadeInfo;
+class Tracer;
 
 class World {
 public:
@@ -29,6 +30,7 @@ public:
   std::vector<Geometry *> geometry;
   Camera *camera_ptr;
   Sampler *sampler_ptr;
+  Tracer* tracer_ptr;
 
 public:
   // Constructors.

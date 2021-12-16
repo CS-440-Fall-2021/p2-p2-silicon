@@ -1,7 +1,7 @@
-raytracer: Parallel.o Perspective.o Geometry.o Plane.o Sphere.o Triangle.o Cosine.o \
+raytracer: Parallel.o Perspective.o Geometry.o Plane.o Sphere.o Triangle.o Cosine.o Basic.o \
 Sampler.o Simple.o BBox.o Image.o Point3D.o Ray.o RGBColor.o ShadeInfo.o Vector3D.o ViewPlane.o World.o Build.o raytracer.o
 	g++ -o raytracer Parallel.o Perspective.o Geometry.o Plane.o Sphere.o Triangle.o Cosine.o \
-Sampler.o Simple.o BBox.o Image.o Point3D.o Ray.o RGBColor.o ShadeInfo.o Vector3D.o ViewPlane.o World.o Build.o raytracer.o
+Sampler.o Simple.o BBox.o Image.o Point3D.o Ray.o RGBColor.o ShadeInfo.o Vector3D.o ViewPlane.o World.o Build.o Basic.o raytracer.o
 
 Parallel.o: cameras/Parallel.cpp
 	g++ -c cameras/Parallel.cpp
@@ -59,6 +59,9 @@ World.o: world/World.cpp
 
 Build.o: build/buildHelloWorld.cpp
 	g++ -c build/buildHelloWorld.cpp -o Build.o
+
+Basic.o: tracers/Basic.cpp
+	g++ -c tracers/Basic.cpp
 
 raytracer.o: raytracer.cpp
 	g++ -c raytracer.cpp
