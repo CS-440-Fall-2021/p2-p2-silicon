@@ -6,9 +6,8 @@
 
    Courtesy Kevin Suffern.
 */
-
-class RGBColor;
-class ShadeInfo;
+#include"../utilities/RGBColor.hpp"
+#include"../utilities/ShadeInfo.hpp"
 
 class Material {
 public:
@@ -24,4 +23,6 @@ public:
 
   // Get color.
   virtual RGBColor shade(const ShadeInfo &sinfo) const = 0;
+  virtual RGBColor area_light_shade(ShadeInfo* sr) const = 0;
+  virtual RGBColor path_shade(ShadeInfo& sr) const = 0; 
 };

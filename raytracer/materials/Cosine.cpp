@@ -1,6 +1,4 @@
 #include "Cosine.hpp"
-#include "../utilities/Vector3D.hpp"
-#include "../utilities/ShadeInfo.hpp"
 
 Cosine::Cosine() : color(0)
 {
