@@ -4,8 +4,9 @@
 #include "../geometry/Geometry.hpp"
 #include "../utilities/ShadeInfo.hpp"
 #include "../utilities/Constants.hpp"
+#include "../lights/Ambient.hpp"
 
-World::World() : camera_ptr(nullptr), sampler_ptr(nullptr), tracer_ptr(nullptr)
+World::World() : camera_ptr(nullptr), sampler_ptr(nullptr), tracer_ptr(nullptr), ambient_ptr(new Ambient)
 {
 }
 

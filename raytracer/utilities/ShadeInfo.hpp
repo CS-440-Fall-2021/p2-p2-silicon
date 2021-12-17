@@ -27,11 +27,12 @@ public:
   Ray ray;                // the ray that hit.
   int depth;              // recursion depth.
   float t;                // ray parameter at hit point.
-  const World *w;         // pointer to the world.
+  World *w;         // pointer to the world.
+  Vector3D dir;           // for area lights
 
 public:
   // Constructor.
-  ShadeInfo(const World &wr); // set the world.
+  ShadeInfo(World &wr); // set the world.
 
   // Copy constructor.
   ShadeInfo(const ShadeInfo &sr) = default;
