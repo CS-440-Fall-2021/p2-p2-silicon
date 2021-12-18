@@ -13,8 +13,8 @@ World::World() : camera_ptr(nullptr), sampler_ptr(nullptr), tracer_ptr(nullptr),
 
 World::~World()
 {
-    delete camera_ptr;
-    delete sampler_ptr;
+    // delete camera_ptr;
+    // delete sampler_ptr;
 }
 
 void World::add_geometry(Geometry *geom_ptr)

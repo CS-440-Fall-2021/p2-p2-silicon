@@ -1,6 +1,6 @@
-#include"Material.hpp"
-#include"../BRDF/Lambertian.hpp"
-#include"../BRDF/GlossySpecular.hpp"
+#include "../materials/Material.hpp"
+#include "../BRDF/Lambertian.hpp"
+#include "../BRDF/GlossySpecular.hpp"
 
 
 class Phong : public Material

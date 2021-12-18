@@ -35,7 +35,7 @@ public:
   ShadeInfo(World &wr); // set the world.
 
   // Copy constructor.
-  ShadeInfo(const ShadeInfo &sr) = default;
+  ShadeInfo(const ShadeInfo &sr);
 
   // Destructor.
   ~ShadeInfo() = default;

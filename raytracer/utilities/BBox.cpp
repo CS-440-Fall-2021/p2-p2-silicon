@@ -15,7 +15,7 @@ std::string BBox::to_string() const{
 }
 
 bool BBox::hit(const Ray &ray, float &t_enter, float &t_exit) const{
-    
+    return false;
 }
 
 void BBox::extend(Geometry* g){
@@ -36,9 +36,9 @@ bool BBox::contains(const Point3D& p){
 }
 
 bool BBox::overlaps(Geometry* g){
-    
+    return false;
 }
 
 bool BBox::overlaps(const BBox& b){
-
+    return false;
 }

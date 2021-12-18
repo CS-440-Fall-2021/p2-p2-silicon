@@ -7,13 +7,24 @@
    Courtesy Kevin Suffern.
 */
 
-class Point3D;
-class Vector3D;
+#include "../utilities/Point3D.hpp"
+#include "../utilities/Vector3D.hpp"
+
+class World;
 
 class Camera {
+  protected:
+  Point3D eye;
+  Point3D lookat;
+  Vector3D up;
+  Vector3D u, v, w;
+  float exposure_time;
+
 public:
   // Constructors.
-  Camera() = default; // does nothing.
+  Camera();
+  Camera(Point3D eye_, Point3D lookat_, Vector3D up_);
+  Camera(Point3D eye_, Point3D lookat_, Vector3D up_, float exp_t);
 
   // Copy constuctor and assignment operator.
   Camera(const Camera &camera) = default;
@@ -23,5 +34,16 @@ public:
   virtual ~Camera() = default;
 
   // Get direction of projection for a point.
-  virtual Vector3D get_direction(const Point3D &p) const = 0;
+  virtual Vector3D ray_direction(const Point3D &p) const = 0;
+
+  void set_eye(float x_, float y_, float z_);
+  void set_lookat(float x_, float y_, float z_);
+
+  virtual void set_view_distance(float) = 0;
+  void
+  compute_uvw(void);
+
+  // Render scene for each Camera type
+  virtual void
+  render_scene(World &w) = 0;
 };

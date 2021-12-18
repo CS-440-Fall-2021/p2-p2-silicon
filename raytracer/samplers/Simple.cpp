@@ -35,7 +35,7 @@ std::vector<Ray> Simple::get_rays(int px, int py) const
         (viewplane_ptr->top_left.y - viewplane_ptr->bottom_right.y);
 
     Point3D origin(x_coord, y_coord, viewplane_ptr->top_left.z);
-    Ray ray(origin, camera_ptr->get_direction(origin));
+    Ray ray(origin, camera_ptr->ray_direction(origin));
 
     rays.push_back(ray);
 

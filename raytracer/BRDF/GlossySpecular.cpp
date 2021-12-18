@@ -1,7 +1,16 @@
-#include"GlossySpecular.hpp"
-#include"../utilities/Constants.hpp"
+#include "GlossySpecular.hpp"
+#include "../utilities/Constants.hpp"
+#include <math.h>
 
-// GlossySpecular::GlossySpecular()
+
+GlossySpecular::GlossySpecular() : BRDF()
+{
+}
+
+GlossySpecular::GlossySpecular(Sampler *s) : BRDF(s)
+{
+}
+
 
 void GlossySpecular::set_ks(float ks){
     this->ks = ks;

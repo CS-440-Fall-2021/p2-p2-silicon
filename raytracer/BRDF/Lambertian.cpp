@@ -1,7 +1,13 @@
-#include"Lambertian.hpp"
-#include"../utilities/Constants.hpp"
+#include "Lambertian.hpp"
+#include "../utilities/Constants.hpp"
 
-// Lambertian::Lambertian()
+Lambertian::Lambertian() : BRDF()
+{
+}
+Lambertian::Lambertian(Sampler *s) : BRDF(s)
+{
+}
+
 
 void Lambertian::set_kd(float kd){
     this->kd = kd;

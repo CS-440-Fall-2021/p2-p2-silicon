@@ -1,3 +1,4 @@
+#pragma once
 #include"../utilities/RGBColor.hpp"
 
 class Vector3D;

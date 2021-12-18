@@ -1,3 +1,4 @@
+#pragma once
 #include"BRDF.hpp"
 
 class GlossySpecular: public BRDF{
@@ -7,6 +8,7 @@ class GlossySpecular: public BRDF{
         RGBColor cs;
     public:
         GlossySpecular();
+        GlossySpecular(Sampler*);
         ~GlossySpecular() = default;
 
         // Access functions for kd and cd

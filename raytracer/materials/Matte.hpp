@@ -1,5 +1,5 @@
-#include"Material.hpp"
-#include"../BRDF/Lambertian.hpp"
+#include "../materials/Material.hpp"
+#include "../BRDF/Lambertian.hpp"
 
 class Matte : public Material
 {

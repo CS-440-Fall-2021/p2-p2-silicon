@@ -1,3 +1,4 @@
+#pragma once
 #include"BRDF.hpp"
 
 class PerfectSpecular: public BRDF{
@@ -6,6 +7,7 @@ class PerfectSpecular: public BRDF{
         RGBColor cr;
     public:
         PerfectSpecular();
+        PerfectSpecular(Sampler*);
         ~PerfectSpecular() = default;
 
         // Access functions for kd and cd

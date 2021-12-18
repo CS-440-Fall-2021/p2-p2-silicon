@@ -27,6 +27,7 @@ Sphere &Sphere::operator=(const Sphere &rhs)
     this->r = rhs.r;
     this->set_material(rhs.get_material());
 
+    return *this;
 }
 
 std::string Sphere::to_string() const
