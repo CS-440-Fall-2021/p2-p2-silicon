@@ -17,16 +17,21 @@
 class Camera;
 class Ray;
 class ViewPlane;
+class Point3D;
 
 class Sampler {
 protected:
   Camera *camera_ptr;       // the camera that decides the projectors.
   ViewPlane *viewplane_ptr; // the view plane through which rays are shot.
+  int num_samples;
+  int num_sets;
+  mutable std::vector<Point3D> samples;
+  std::vector<Point3D> hemishpere_samples;
 
 public:
   // Constructors.
-  Sampler();                                // initializes members to NULL.
-  Sampler(Camera *c_ptr, ViewPlane *v_ptr); // set members.
+  Sampler(int num_samp);                                // initializes members to NULL.
+  Sampler(Camera *c_ptr, ViewPlane *v_ptr, int num_samp); // set members.
 
   // Copy constuctor and assignment operator.
   Sampler(const Sampler &camera) = default;
@@ -39,4 +44,9 @@ public:
   // indexes of the pixel in the view plane, with the origin at the top left of
   // the view plane.
   virtual std::vector<Ray> get_rays(int px, int py) const = 0;
+  virtual void generate_samples() = 0;
+
+
+  void sample_hemisphere();
+  void map_samples_to_hemisphere(const float e);
 };
