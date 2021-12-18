@@ -4,6 +4,8 @@
 #include "../utilities/ShadeInfo.hpp"
 #include "../materials/Material.hpp"
 
+#include <iostream>
+
 Basic::Basic(World *_w) : Tracer(_w)
 {
 }

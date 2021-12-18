@@ -20,7 +20,7 @@ Pinhole::Pinhole(): Camera(), d(0), zoom(1)
 }
 
 Pinhole::Pinhole(Point3D eye, Point3D lookat, float d_) 
-    : Camera(eye, lookat, Vector3D()), d(d_)
+    : Camera(eye, lookat, Vector3D(0, 1, 0)), d(d_)
 {
 }
 

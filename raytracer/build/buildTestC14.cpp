@@ -41,7 +41,11 @@ World::build(void) {
   bg_color = black;  // background color.
   
   // camera and sampler.
-  Camera *cam = new Pinhole(Point3D(-320, 240, -30), Point3D(-320, 240, 0), 30);
+  // Camera *cam = new Pinhole();
+  // cam->set_eye(0, 0, 200);
+  // cam->set_lookat(0, 0, 0);
+  // cam->set_view_distance(100);
+  Camera *cam = new Pinhole(Point3D(-320, 240, -210), Point3D(-320, 240, 0), 200);
   cam->compute_uvw();
   set_camera(cam);
   sampler_ptr = new Simple(camera_ptr, &vplane);

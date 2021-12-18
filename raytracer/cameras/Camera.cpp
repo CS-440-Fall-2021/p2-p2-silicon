@@ -1,7 +1,7 @@
 #include "Camera.hpp"
 
 
-Camera::Camera() : eye(), lookat(), up(), exposure_time()
+Camera::Camera() : eye(), lookat(), up(0, 1, 0), exposure_time()
 {
 }
 
@@ -19,7 +19,7 @@ Camera::Camera(Point3D eye_, Point3D lookat_, Vector3D up_, float exp_t)
 void
 Camera::compute_uvw(void)
 {
-    w = eye - lookat;
+    w = lookat - eye;
     w.normalize();
     u = up ^ w;
     u.normalize();
