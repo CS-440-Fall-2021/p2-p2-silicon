@@ -1,6 +1,7 @@
 #include "Sampler.hpp"
-#include "../world/ViewPlane.hpp"
 #include <math.h>
+#include "../utilities/Point3D.hpp"
+#include "../world/ViewPlane.hpp"
 #include "../utilities/Constants.hpp"
 
 Sampler::Sampler(int num_samp)
