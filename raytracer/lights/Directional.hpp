@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Light.hpp"
 #include "../utilities/Vector3D.hpp"
 

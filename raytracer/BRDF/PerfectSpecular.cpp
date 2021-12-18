@@ -1,6 +1,14 @@
 #include"PerfectSpecular.hpp"
 #include"../utilities/Constants.hpp"
 
+PerfectSpecular::PerfectSpecular() : BRDF()
+{
+}
+
+PerfectSpecular::PerfectSpecular(Sampler *s) : BRDF(s)
+{
+}
+
 void PerfectSpecular::set_kr(float kr){
     this->kr = kr;
 }

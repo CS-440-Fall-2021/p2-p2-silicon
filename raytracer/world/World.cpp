@@ -13,8 +13,8 @@ World::World() : camera_ptr(nullptr), sampler_ptr(nullptr), tracer_ptr(nullptr),
 
 World::~World()
 {
-    delete camera_ptr;
-    delete sampler_ptr;
+    // delete camera_ptr;
+    // delete sampler_ptr;
 }
 
 void World::add_geometry(Geometry *geom_ptr)
@@ -39,7 +39,7 @@ ShadeInfo World::hit_objects(const Ray &ray)
     float t = 0.0;
 
 
-    for (int i = 0; i < geometry.size(); i++)
+    for (int i = 0; i < (int) geometry.size(); i++)
     {
         bool hit_flag = geometry[i]->hit(ray, t, tmp);
 

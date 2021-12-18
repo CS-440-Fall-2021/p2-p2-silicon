@@ -58,9 +58,9 @@ Vector3D Vector3D::operator+(const Vector3D &v) const
 
 Vector3D &Vector3D::operator+=(const Vector3D &v)
 {
-    this->x + v.x;
-    this->y + v.y;
-    this->z + v.z;
+    this->x += v.x;
+    this->y += v.y;
+    this->z += v.z;
     return *this;
 }
 
@@ -75,9 +75,9 @@ Vector3D Vector3D::operator-(const Vector3D &v) const
 
 Vector3D &Vector3D::operator-=(const Vector3D &v)
 {
-    this->x - v.x;
-    this->y - v.y;
-    this->z - v.z;
+    this->x -= v.x;
+    this->y -= v.y;
+    this->z -= v.z;
     return *this;
 }
 

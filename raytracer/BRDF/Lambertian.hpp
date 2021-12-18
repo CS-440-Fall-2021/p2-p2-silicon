@@ -1,4 +1,5 @@
-#include"BRDF.hpp"
+#pragma once
+#include "BRDF.hpp"
 
 class Lambertian: public BRDF{
     private:
@@ -6,6 +7,7 @@ class Lambertian: public BRDF{
         RGBColor cd;
     public:
         Lambertian();
+        Lambertian(Sampler*);
         ~Lambertian() = default;
 
         // Access functions for kd and cd

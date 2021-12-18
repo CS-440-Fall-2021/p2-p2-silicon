@@ -10,7 +10,7 @@
    Courtesy Kevin Suffern.
 */
 
-#include "Material.hpp"
+#include "../materials/Material.hpp"
 
 #include "../utilities/RGBColor.hpp"
 

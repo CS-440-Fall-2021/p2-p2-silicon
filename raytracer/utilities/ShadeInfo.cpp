@@ -1,9 +1,7 @@
 #include "ShadeInfo.hpp"
 
 ShadeInfo::ShadeInfo(World &wr) : hit(false),
-      material_ptr(NULL),
-      hit_point(), normal(),
-      ray(), depth(0), dir(), w(&wr) // initialize world reference
+      w(&wr) // initialize world reference
 {
 }
 
