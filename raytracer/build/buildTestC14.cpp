@@ -19,6 +19,8 @@
 #include "../tracers/Basic.hpp"
 
 #include "../samplers/Simple.hpp"
+#include "../samplers/Random.hpp"
+#include "../samplers/Regular.hpp"
 
 #include "../utilities/Constants.hpp"
 #include "../utilities/Vector3D.hpp"
@@ -54,6 +56,8 @@ World::build(void) {
   cam->compute_uvw();
   set_camera(cam);
   sampler_ptr = new Simple(camera_ptr, &vplane);
+  // sampler_ptr = new Random(camera_ptr, &vplane, 16);
+  // sampler_ptr = new Regular(camera_ptr, &vplane, 16);
   sampler_ptr->generate_samples();
 	
   // default luminance 1.0, color 1.0
