@@ -26,6 +26,11 @@ RGBColor GlossySpecular::get_cs(){
     return cs;
 }
 
+void GlossySpecular::set_exp(float _exp)
+{
+    exp = _exp;
+}
+
 RGBColor GlossySpecular::f(const ShadeInfo& sr, const Vector3D& wi, const Vector3D& wo) const{
     RGBColor L;
     float ndotwi = sr.normal * wi;

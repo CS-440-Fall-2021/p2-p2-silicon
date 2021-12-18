@@ -24,9 +24,9 @@ Simple &Simple::operator=(const Simple &other)
 
 void Simple::generate_samples()
 {
-    for (size_t x = 0; x < viewplane_ptr->hres; x++)
+    for (int x = 0; x < viewplane_ptr->hres; x++)
     {
-        for (size_t y = 0; y < viewplane_ptr->vres; y++)
+        for (int y = 0; y < viewplane_ptr->vres; y++)
         {
             float x_coord = viewplane_ptr->top_left.x + ((float)x / (float)viewplane_ptr->hres) *
                             (viewplane_ptr->bottom_right.x - viewplane_ptr->top_left.x);
