@@ -6,9 +6,12 @@
 class PointLight: public Light{
     protected:
         Vector3D location;
+        
     public:
         PointLight();
         ~PointLight() = default;
+
+        void set_location(float _x, float _y, float _z);
         virtual Vector3D get_direction(const ShadeInfo& src) const;
         virtual RGBColor L(const ShadeInfo& src) const;
 };

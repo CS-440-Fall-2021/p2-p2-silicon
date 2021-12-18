@@ -6,6 +6,7 @@
 class Directional: public Light{
     protected:
         Vector3D direction;
+        
     public:
         Directional();
         ~Directional() = default;

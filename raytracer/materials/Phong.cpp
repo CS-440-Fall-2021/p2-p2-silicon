@@ -1,6 +1,7 @@
 #include "Phong.hpp"
 #include "../world/World.hpp"
 #include "../lights/Light.hpp"
+#include "../lights/Ambient.hpp"
 
 Phong::Phong()
 {

@@ -6,7 +6,7 @@
 #include "../utilities/Constants.hpp"
 #include "../lights/Ambient.hpp"
 
-World::World() : camera_ptr(nullptr), sampler_ptr(nullptr), tracer_ptr(nullptr), ambient_ptr(new Ambient)
+World::World() : camera_ptr(nullptr), sampler_ptr(nullptr), tracer_ptr(nullptr), ambient_ptr(nullptr)
 {
 }
 
@@ -17,6 +17,11 @@ World::~World()
     // delete sampler_ptr;
 }
 
+void World::add_light(Light* light_ptr)
+{
+    this->lights.push_back(light_ptr);
+}
+
 void World::add_geometry(Geometry *geom_ptr)
 {
     this->geometry.push_back(geom_ptr);
@@ -25,6 +30,11 @@ void World::add_geometry(Geometry *geom_ptr)
 void World::set_camera(Camera *c_ptr)
 {
     this->camera_ptr = c_ptr;
+}
+
+void World::set_ambient_light(Ambient *a)
+{
+    ambient_ptr = a;
 }
 
 ShadeInfo World::hit_objects(const Ray &ray)

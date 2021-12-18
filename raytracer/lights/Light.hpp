@@ -13,7 +13,10 @@ class Light{
 
     public:
         Light();
+        Light(float ls, float color);
         ~Light() = default;
+
+        void scale_radiance(float radiance);
         virtual Vector3D get_direction(const ShadeInfo& src) const = 0;
         virtual RGBColor L(const ShadeInfo& src) const = 0;
 

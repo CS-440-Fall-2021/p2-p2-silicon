@@ -23,6 +23,7 @@ class Sampler;
 class ShadeInfo;
 class Tracer;
 class Light;
+class Ambient;
 
 class World {
 public:
@@ -31,8 +32,8 @@ public:
   std::vector<Geometry *> geometry;
   Camera *camera_ptr;
   Sampler *sampler_ptr;
-  Tracer* tracer_ptr;
-  Light * ambient_ptr;
+  Tracer *tracer_ptr;
+  Ambient *ambient_ptr;
   std::vector<Light*> lights;
 
 public:
@@ -45,7 +46,8 @@ public:
   // Add to the scene.
   void add_geometry(Geometry *geom_ptr);
   void set_camera(Camera *c_ptr);
-  void add_light(Light* light_ptr);
+  void add_light(Light *light_ptr);
+  void set_ambient_light(Ambient* ambient_ptr);
 
   // Build scene - add all geometry, materials, lights, viewplane, camera,
   // samplers, and acceleration structures
