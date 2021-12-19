@@ -3,11 +3,11 @@
 #include <math.h>
 
 
-GlossySpecular::GlossySpecular() : BRDF()
+GlossySpecular::GlossySpecular() : BRDF(), ks(0.0), exp(3.0), cs(RGBColor(1.0)) 
 {
 }
 
-GlossySpecular::GlossySpecular(Sampler *s) : BRDF(s)
+GlossySpecular::GlossySpecular(Sampler *s) : BRDF(s), exp(3.0), cs(RGBColor(1.0))
 {
 }
 
@@ -35,9 +35,9 @@ RGBColor GlossySpecular::f(const ShadeInfo& sr, const Vector3D& wi, const Vector
     RGBColor L;
     float ndotwi = sr.normal * wi;
     Vector3D r(-wi + 2.0 * sr.normal * ndotwi);
-    float rdotwo = r * wo;
-    if ((r * wo) > 0.0){
-        L = ks * pow(rdotwo, exp);
+    double rdotwo = r * wo;
+    if ( rdotwo > 0.0){
+        L = ks * cs * pow(rdotwo, exp);
     }
     return (L);
 }

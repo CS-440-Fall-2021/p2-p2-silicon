@@ -35,7 +35,7 @@ RGBColor Matte::shade(const ShadeInfo &sr) const{
         float ndotwi = sr.normal * wi;
         
         if (ndotwi > 0.0) {
-            L += diffuse_brdf->f(sr, wo, wi) * sr.w->lights[j]->L(sr) * ndotwi;
+            L += diffuse_brdf->f(sr, wi, wo) * sr.w->lights[j]->L(sr) * ndotwi;
         }
     }
     return (L);

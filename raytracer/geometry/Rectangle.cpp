@@ -52,9 +52,9 @@ Rectangle::Rectangle(const Point3D& _p0, const Vector3D& _a, const Vector3D& _b,
 		b(_b),
 		a_len_squared(a.len_squared()), 
 		b_len_squared(b.len_squared()),
+		normal(n),
 		area(a.length() * b.length()),	
 		inv_area(1.0 / area),
-		normal(n),
 		sampler_ptr(NULL)
 {
 	normal.normalize();
@@ -137,7 +137,7 @@ Rectangle::~Rectangle (void) {
 
 BBox
 Rectangle::getBBox() const{
-	float delta = 0.0001; 
+	// float delta = 0.0001; 
 
 	return BBox();
 	// return(BBox(min(p0.x, p0.x + a.x + b.x) - delta, max(p0.x, p0.x + a.x + b.x) + delta,

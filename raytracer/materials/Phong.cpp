@@ -65,7 +65,8 @@ RGBColor Phong::shade(const ShadeInfo &s) const
         float ndotwi = s.normal * wi;
         if (ndotwi > 0.0)
         {
-            L += (diffuse_brdf->f(s, wo, wi) +specular_brdf->f(s, wo, wi)) *s.w->lights[j]->L(s) * ndotwi;
+            L += (diffuse_brdf->f(s, wi, wo) +specular_brdf->f(s, wi, wo)) *
+            s.w->lights[j]->L(s) * ndotwi;
         }
     }
     return (L);

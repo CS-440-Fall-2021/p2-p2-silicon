@@ -41,7 +41,6 @@ void World::set_ambient_light(Ambient *a)
 
 ShadeInfo World::hit_objects(const Ray &ray)
 {
-    std::vector<Geometry *>::iterator itr;
 
     ShadeInfo final(*this);
     ShadeInfo tmp(*this);

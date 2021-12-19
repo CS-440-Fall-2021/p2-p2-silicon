@@ -26,7 +26,7 @@ RGBColor Reflective::shade(const ShadeInfo &s) const
     RGBColor L(Phong::shade(s)); // direct illumination
     Vector3D wo = -s.ray.d;
     Vector3D wi;
-    RGBColor fr = reflective_brdf->sample_f(s, wo, wi);
+    RGBColor fr = reflective_brdf->sample_f(s, wi, wo);
     Ray reflected_ray(s.hit_point, wi);
     L += fr * s.w->tracer_ptr->trace_ray(reflected_ray, s.depth + 1) *
          (s.normal * wi);

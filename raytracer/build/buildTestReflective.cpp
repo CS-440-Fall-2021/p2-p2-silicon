@@ -42,7 +42,7 @@ World::build(void) {
   vplane.bottom_right.z = 50;
   vplane.hres = 400*2;
   vplane.vres = 400*2;
-  vplane.max_depth = 10;
+  vplane.max_depth = 18;
 
   tracer_ptr = new Whitted(this);
   
@@ -64,10 +64,15 @@ World::build(void) {
   set_ambient_light(ambient);
 
 
-  // PointLight *pt_light = new PointLight();
-  // pt_light->set_location(-30, 50, 0);
-  // pt_light->scale_radiance(3.0);
-  // add_light(pt_light);
+  PointLight *pt_light = new PointLight();
+  pt_light->set_location(-30, 50, 25);
+  pt_light->scale_radiance(3.0);
+  add_light(pt_light);
+
+  PointLight *pt_light2 = new PointLight();
+  pt_light->set_location(30, 50, 25);
+  pt_light->scale_radiance(3.0);
+  add_light(pt_light2);
 
 
   // colors
@@ -83,19 +88,25 @@ World::build(void) {
   RGBColor grey(0.25);  // grey
 	
   Reflective* reflective_ptr1 = new Reflective;
-  reflective_ptr1->set_ka(0.25);
-  reflective_ptr1->set_kd(0.5);
-  reflective_ptr1->set_cd(yellow);
-  reflective_ptr1->set_ks(0.15);
-  reflective_ptr1->set_exp(100);
-  reflective_ptr1->set_kr(0.75);
-  reflective_ptr1->set_cr(white);
+  // reflective_ptr1->set_ka(0.25);
+  // reflective_ptr1->set_kd(0.5);
+  // reflective_ptr1->set_cd(yellow);
+  // reflective_ptr1->set_ks(0.25);
+  // reflective_ptr1->set_exp(100);
+  // reflective_ptr1->set_kr(0.75);
+  // reflective_ptr1->set_cr(white);
+  reflective_ptr1->set_ka(0.7);
+	reflective_ptr1->set_kd(0.7);
+	reflective_ptr1->set_cd(RGBColor(0.2, 0.02, 0.15));     	
+	reflective_ptr1->set_ks(0.15);
+	reflective_ptr1->set_exp(25.0);
+	reflective_ptr1->set_kr(1.0);
 
   Reflective* reflective_ptr2 = new Reflective;
   reflective_ptr2->set_ka(0.25);
   reflective_ptr2->set_kd(0.5);
   reflective_ptr2->set_cd(brown);
-  reflective_ptr2->set_ks(0.15);
+  reflective_ptr2->set_ks(0.25);
   reflective_ptr2->set_exp(100);
   reflective_ptr2->set_kr(0.75);
   reflective_ptr2->set_cr(white);
@@ -104,22 +115,22 @@ World::build(void) {
   reflective_ptr3->set_ka(0.25);
   reflective_ptr3->set_kd(0.5);
   reflective_ptr3->set_cd(darkGreen);
-  reflective_ptr3->set_ks(0.15);
+  reflective_ptr3->set_ks(0.25);
   reflective_ptr3->set_exp(100);
-  reflective_ptr3->set_kr(0.75);
+  reflective_ptr3->set_kr(0.5);
   reflective_ptr3->set_cr(white);
   
   // spheres
   Sphere* sphere_ptr1 = new Sphere(Point3D(5, 3, 0), 30); 
-  sphere_ptr1->set_material(new Matte(0.25, 0.65, yellow));  // yellow
+  sphere_ptr1->set_material(reflective_ptr1);  // yellow
   add_geometry(sphere_ptr1);
 	
   Sphere* sphere_ptr2 = new Sphere(Point3D(45, -7, -60), 20); 
-  sphere_ptr2->set_material(new Matte(0.25, 0.65, brown));  // brown
+  sphere_ptr2->set_material(reflective_ptr2);  // brown
   add_geometry(sphere_ptr2);
 
   Sphere* sphere_ptr3 = new Sphere(Point3D(40, 43, -100), 17); 
-  sphere_ptr3->set_material(new Matte(0.25, 0.65, darkGreen));  // dark green
+  sphere_ptr3->set_material(reflective_ptr3);  // dark green
   add_geometry(sphere_ptr3);
 	
   Sphere* sphere_ptr4 = new Sphere(Point3D(-20, 28, -15), 20); 

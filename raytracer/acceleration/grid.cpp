@@ -6,7 +6,7 @@ Grid::Grid():Acceleration(){}
 Grid::Grid(const Grid& G){}
 
 Grid::Grid(vector<Geometry*>& G) {	
-	for (int i = 0; i < G.size(); i++) {
+	for (int i = 0; i < (int)G.size(); i++) {
 		this->objects.push_back(G[i]);
 	}
 }

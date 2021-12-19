@@ -43,7 +43,9 @@ bool Compound::hit(const Ray& ray, float& tmin, ShadeInfo& sr) const {
 	if (hit) {
 		sr.t				= tmin;
 		sr.normal 			= normal;   
-		sr.hit_point 	= local_hit_point;  
+		sr.hit_point 	= local_hit_point;
+		sr.hit = true;
+		sr.material_ptr = material_ptr;
 	}
 	
 	return (hit);
