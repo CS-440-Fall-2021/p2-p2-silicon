@@ -12,15 +12,15 @@
 
 #include "../geometry/Plane.hpp"
 #include "../geometry/Sphere.hpp"
+#include "../geometry/Triangle.hpp"
 
 #include "../materials/Cosine.hpp"
 #include "../materials/Matte.hpp"
+#include "../materials/Reflective.hpp"
 
-#include "../tracers/Basic.hpp"
+#include "../tracers/Whitted.hpp"
 
 #include "../samplers/Simple.hpp"
-#include "../samplers/Random.hpp"
-#include "../samplers/Regular.hpp"
 
 #include "../utilities/Constants.hpp"
 #include "../utilities/Vector3D.hpp"
@@ -34,30 +34,29 @@
 void
 World::build(void) {
   // view plane  
-  vplane.top_left.x = -200;
-  vplane.top_left.y = 200;
-  vplane.top_left.z = 100;
-  vplane.bottom_right.x = 200;
-  vplane.bottom_right.y = -200;
-  vplane.bottom_right.z = 100;
-  vplane.hres = 400;
-  vplane.vres = 400;
+  vplane.top_left.x = -200/2;
+  vplane.top_left.y = 200/2;
+  vplane.top_left.z = 50;
+  vplane.bottom_right.x = 200/2;
+  vplane.bottom_right.y = -200/2;
+  vplane.bottom_right.z = 50;
+  vplane.hres = 400*2;
+  vplane.vres = 400*2;
+  vplane.max_depth = 10;
 
-  tracer_ptr = new Basic(this);
+  tracer_ptr = new Whitted(this);
   
   bg_color = black;  // background color.
   
   // camera and sampler.
   // Camera *cam = new Pinhole();
-  // cam->set_eye(0, 0, 200);
+  // cam->set_eye(0, 0, -50);
   // cam->set_lookat(0, 0, 0);
-  // cam->set_view_distance(100);
-  Camera *cam = new Pinhole(Point3D(-320, 240, -310), Point3D(-320, 240, 0), 300);
+  // cam->set_view_distance(10);
+  Camera *cam = new Pinhole(Point3D(-320, 240, -100), Point3D(-320, 240, 0), 1000);
   cam->compute_uvw();
   set_camera(cam);
   sampler_ptr = new Simple(camera_ptr, &vplane);
-  // sampler_ptr = new Random(camera_ptr, &vplane, 16);
-  // sampler_ptr = new Regular(camera_ptr, &vplane, 16);
   sampler_ptr->generate_samples();
 	
   // default luminance 1.0, color 1.0
@@ -66,9 +65,10 @@ World::build(void) {
 
 
   PointLight *pt_light = new PointLight();
-  pt_light->set_location(-420, 340, -210);
+  pt_light->set_location(-320, -120, -210);
   pt_light->scale_radiance(3.0);
   add_light(pt_light);
+
 
   // colors
   RGBColor yellow(1, 1, 0);  // yellow
@@ -82,19 +82,44 @@ World::build(void) {
   RGBColor darkPurple(0.5, 0, 1);  // dark purple
   RGBColor grey(0.25);  // grey
 	
+  Reflective* reflective_ptr1 = new Reflective;
+  reflective_ptr1->set_ka(0.25);
+  reflective_ptr1->set_kd(0.5);
+  reflective_ptr1->set_cd(yellow);
+  reflective_ptr1->set_ks(0.15);
+  reflective_ptr1->set_exp(100);
+  reflective_ptr1->set_kr(0.75);
+  reflective_ptr1->set_cr(white);
 
+  Reflective* reflective_ptr2 = new Reflective;
+  reflective_ptr2->set_ka(0.25);
+  reflective_ptr2->set_kd(0.5);
+  reflective_ptr2->set_cd(brown);
+  reflective_ptr2->set_ks(0.15);
+  reflective_ptr2->set_exp(100);
+  reflective_ptr2->set_kr(0.75);
+  reflective_ptr2->set_cr(white);
+
+  Reflective* reflective_ptr3 = new Reflective;
+  reflective_ptr3->set_ka(0.25);
+  reflective_ptr3->set_kd(0.5);
+  reflective_ptr3->set_cd(darkGreen);
+  reflective_ptr3->set_ks(0.15);
+  reflective_ptr3->set_exp(100);
+  reflective_ptr3->set_kr(0.75);
+  reflective_ptr3->set_cr(white);
   
   // spheres
   Sphere* sphere_ptr1 = new Sphere(Point3D(5, 3, 0), 30); 
-  sphere_ptr1->set_material(new Matte(0.25, 0.65, yellow));  // yellow
+  sphere_ptr1->set_material(reflective_ptr1);  // yellow
   add_geometry(sphere_ptr1);
 	
   Sphere* sphere_ptr2 = new Sphere(Point3D(45, -7, -60), 20); 
-  sphere_ptr2->set_material(new Matte(0.25, 0.65, brown));  // brown
+  sphere_ptr2->set_material(reflective_ptr2);  // brown
   add_geometry(sphere_ptr2);
 
   Sphere* sphere_ptr3 = new Sphere(Point3D(40, 43, -100), 17); 
-  sphere_ptr3->set_material(new Matte(0.25, 0.65, darkGreen));  // dark green
+  sphere_ptr3->set_material(reflective_ptr3);  // dark green
   add_geometry(sphere_ptr3);
 	
   Sphere* sphere_ptr4 = new Sphere(Point3D(-20, 28, -15), 20); 

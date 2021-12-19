@@ -13,7 +13,7 @@ void PerfectSpecular::set_kr(float kr){
     this->kr = kr;
 }
 void PerfectSpecular::set_cr(RGBColor cd){
-    this->cr = cr;
+    this->cr = cd;
 }
 float PerfectSpecular::get_kr(){
     return kr;
@@ -32,7 +32,7 @@ RGBColor PerfectSpecular::sample_f(const ShadeInfo& sr, Vector3D& wi, const Vect
     return (kr * cr / (sr.normal * wi));
 }
 
-RGBColor PerfectSpecular::sample_f(const ShadeInfo& sr, Vector3D& wi, const Vector3D& wo,float& pdf) const{
+RGBColor PerfectSpecular::sample_f(const ShadeInfo& sr, Vector3D& wi, const Vector3D& wo, float& pdf) const{
     
 }
 

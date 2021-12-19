@@ -61,6 +61,10 @@ void Pinhole::render_scene(World &w)
             {
                 pixel_color += w.tracer_ptr->trace_ray(ray, 0);
             }
+            
+            // TODO:
+            // Divide color by num of samples (rays.size) * exposure time
+            pixel_color /= rays.size();
             // Save color to image.
             image.set_pixel(x, y, pixel_color);
             // std::cout << pixel_color << "\n";

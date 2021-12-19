@@ -1,7 +1,7 @@
 #include "Lambertian.hpp"
 #include "../utilities/Constants.hpp"
 
-Lambertian::Lambertian() : BRDF()
+Lambertian::Lambertian() : BRDF(), kd(1.0), cd(RGBColor(1.0))
 {
 }
 Lambertian::Lambertian(Sampler *s) : BRDF(s)

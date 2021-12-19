@@ -16,6 +16,7 @@ class GlossySpecular: public BRDF{
         float get_ks();
         void set_cs(RGBColor cs);
         RGBColor get_cs();
+        void set_exp(float exp);
 
         virtual RGBColor f(const ShadeInfo& sr, const Vector3D& wi, const Vector3D& wo) const ;
         virtual RGBColor sample_f(const ShadeInfo& sr, Vector3D& wi, const Vector3D& wo) const;
