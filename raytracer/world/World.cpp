@@ -49,20 +49,20 @@ ShadeInfo World::hit_objects(const Ray &ray)
     final.t = kHugeValue;
     float t = 0.0;
 
+
     if(AP == false){
         for(auto& G: geometry){
             G->hit(ray, final.t, final);
         }
     }
     else{
-        AP->hit(ray, final);
+        AP->hit(ray, final.t, final);
     }
 
     // Seems redundant
     // for (int i = 0; i < (int) geometry.size(); i++)
     // {
     //     bool hit_flag = geometry[i]->hit(ray, t, tmp);
-
     //     if (hit_flag && final.t > t)
     //     {
     //         final = tmp;

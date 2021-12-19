@@ -14,7 +14,7 @@ class Acceleration{
         Acceleration(const Acceleration &object) = default;
 
         //Functions
-        virtual ShadeInfo hit(const Ray &R, ShadeInfo &SI) const = 0;
+        virtual bool hit(const Ray &R, float& t, ShadeInfo &SI) const = 0;
         Acceleration &operator = (const Acceleration &object) = default;
 
         //Destructor

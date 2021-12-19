@@ -28,7 +28,7 @@ void BBox::extend(const BBox& b){
     pmax = min(b.pmax, pmax);
 }
 
-bool BBox::contains(const Point3D& p){
+bool BBox::contains(const Point3D& p) const{
     if( (p.x > pmin.x && p.x < pmax.x) && (p.y > pmin.y && p.y < pmax.y) && p.z > pmin.z && p.z < pmax.z){
         return true;
     }

@@ -19,10 +19,9 @@ class Compound: public Geometry{
 
         //Functions
         void add_object(Geometry* object);
-        virtual bool hit(const Ray& R, float& t, ShadeInfo& SI);
+        virtual bool hit(const Ray& R, float& t, ShadeInfo& SI) const;
         virtual BBox getBBox() const;
         string to_string() const override;
-
 
         //Destructor   
         virtual ~Compound();

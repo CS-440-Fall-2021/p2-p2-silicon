@@ -18,7 +18,7 @@ void Compound::add_object(Geometry* object) {
 	objects.push_back(object);	
 }
 
-bool Compound::hit(const Ray& R, float& t, ShadeInfo& SI){
+bool Compound::hit(const Ray& R, float& t, ShadeInfo& SI) const {
     bool hit = false;
     int total_objects = objects.size();
     for(int i; i < total_objects; i++){
