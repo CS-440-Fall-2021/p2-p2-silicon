@@ -59,7 +59,7 @@ bool BBox::hit(const Ray &ray, float &t_enter, float &t_exit) const{
     }
     t_enter = std::max(std::max(tx_min, ty_min), tz_min);
     t_exit = std::min(std::min(tx_max, ty_max), tz_max);
-    bool val = ((t_enter < t_exit) && (t_exit > kEpsilon));
+    bool val = ((t_enter <= t_exit) && (t_exit > kEpsilon));
     return val;
 }
 

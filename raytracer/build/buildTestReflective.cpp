@@ -64,10 +64,10 @@ World::build(void) {
   set_ambient_light(ambient);
 
 
-  PointLight *pt_light = new PointLight();
-  pt_light->set_location(-320, -120, -210);
-  pt_light->scale_radiance(3.0);
-  add_light(pt_light);
+  // PointLight *pt_light = new PointLight();
+  // pt_light->set_location(-30, 50, 0);
+  // pt_light->scale_radiance(3.0);
+  // add_light(pt_light);
 
 
   // colors
@@ -111,15 +111,15 @@ World::build(void) {
   
   // spheres
   Sphere* sphere_ptr1 = new Sphere(Point3D(5, 3, 0), 30); 
-  sphere_ptr1->set_material(reflective_ptr1);  // yellow
+  sphere_ptr1->set_material(new Matte(0.25, 0.65, yellow));  // yellow
   add_geometry(sphere_ptr1);
 	
   Sphere* sphere_ptr2 = new Sphere(Point3D(45, -7, -60), 20); 
-  sphere_ptr2->set_material(reflective_ptr2);  // brown
+  sphere_ptr2->set_material(new Matte(0.25, 0.65, brown));  // brown
   add_geometry(sphere_ptr2);
 
   Sphere* sphere_ptr3 = new Sphere(Point3D(40, 43, -100), 17); 
-  sphere_ptr3->set_material(reflective_ptr3);  // dark green
+  sphere_ptr3->set_material(new Matte(0.25, 0.65, darkGreen));  // dark green
   add_geometry(sphere_ptr3);
 	
   Sphere* sphere_ptr4 = new Sphere(Point3D(-20, 28, -15), 20); 

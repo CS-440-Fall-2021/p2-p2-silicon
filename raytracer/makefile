@@ -3,11 +3,12 @@ Sampler.o Simple.o BBox.o Image.o Point3D.o Ray.o RGBColor.o ShadeInfo.o Vector3
 	g++ -o raytracer Parallel.o Perspective.o Geometry.o Plane.o Sphere.o Triangle.o Cosine.o \
 Sampler.o Simple.o BBox.o Image.o Point3D.o Ray.o RGBColor.o ShadeInfo.o Vector3D.o ViewPlane.o World.o Build.o Basic.o raytracer.o
 
-Parallel.o: cameras/Parallel.cpp
-	g++ -c cameras/Parallel.cpp
+Acceleration.o: cameras/grid.cpp
+	g++ -c cameras/grid.cpp
 
-Perspective.o: cameras/Perspective.cpp
-	g++ -c cameras/Perspective.cpp
+
+Pinhole.o: cameras/Pinhole.cpp
+	g++ -c cameras/Pinhole.cpp
 
 Geometry.o: geometry/Geometry.cpp
 	g++ -c geometry/Geometry.cpp
@@ -57,8 +58,8 @@ ViewPlane.o: world/ViewPlane.cpp
 World.o: world/World.cpp
 	g++ -c world/World.cpp
 
-Build.o: build/buildHelloWorld.cpp
-	g++ -c build/buildHelloWorld.cpp -o Build.o
+Build.o: build/buildTestReflective.cpp
+	g++ -c build/buildTestReflective.cpp -o Build.o
 
 Basic.o: tracers/Basic.cpp
 	g++ -c tracers/Basic.cpp

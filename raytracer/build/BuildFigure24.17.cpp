@@ -76,23 +76,23 @@ World::build(void) {
 	// light_ptr1->set_shadows(true); 
     add_light(light_ptr1);
     
-    // PointLight* light_ptr2 = new PointLight;
-	// light_ptr2->set_location(0, 10, 10); 
-	// light_ptr2->scale_radiance(0.8); 
-	// // light_ptr2->set_shadows(true); 
-    // add_light(light_ptr2);
+    PointLight* light_ptr2 = new PointLight;
+	light_ptr2->set_location(0, 10, 10); 
+	light_ptr2->scale_radiance(0.8); 
+	// light_ptr2->set_shadows(true); 
+    add_light(light_ptr2);
     
-    // PointLight* light_ptr3 = new PointLight;
-	// light_ptr3->set_location(-10, 10, 0); 
-	// light_ptr3->scale_radiance(2.0); 
-	// // light_ptr3->set_shadows(true); 
-    // add_light(light_ptr3);
+    PointLight* light_ptr3 = new PointLight;
+	light_ptr3->set_location(-10, 10, 0); 
+	light_ptr3->scale_radiance(2.0); 
+	// light_ptr3->set_shadows(true); 
+    add_light(light_ptr3);
     
-    // PointLight* light_ptr4 = new PointLight;
-	// light_ptr4->set_location(0, 10, -10); 
-	// light_ptr4->scale_radiance(2.0); 
-	// // light_ptr4->set_shadows(true); 
-    // add_light(light_ptr4);
+    PointLight* light_ptr4 = new PointLight;
+	light_ptr4->set_location(0, 10, -10); 
+	light_ptr4->scale_radiance(2.0); 
+	// light_ptr4->set_shadows(true); 
+    add_light(light_ptr4);
 
 		
 	// sphere

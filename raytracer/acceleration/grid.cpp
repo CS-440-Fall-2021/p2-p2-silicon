@@ -168,8 +168,8 @@ bool Grid::hit(const Ray& ray, float& tmin, ShadeInfo& s) const{
     while (true) {
         Geometry* object_ptr = cells[ix + nx * iy + nx * ny * iz];
         if (tx_next < ty_next && tx_next < tz_next) {
-            if (object_ptr && object_ptr->hit(ray, tmin, s) && (tmin < tx_next)) {
-            material_ptr = object_ptr->get_material();
+            if (object_ptr && object_ptr->hit(ray, tmin, s) && (tmin <= tx_next)) {
+                material_ptr = object_ptr->get_material();
             return (true);
             }
             tx_next += dtx;
@@ -179,7 +179,7 @@ bool Grid::hit(const Ray& ray, float& tmin, ShadeInfo& s) const{
         }
         else {
             if (ty_next < tz_next) {
-                if (object_ptr && object_ptr->hit(ray, tmin, s) && (tmin < ty_next)) {
+                if (object_ptr && object_ptr->hit(ray, tmin, s) && (tmin <= ty_next)) {
                     material_ptr = object_ptr->get_material();
                     return (true);
                 }
@@ -189,7 +189,7 @@ bool Grid::hit(const Ray& ray, float& tmin, ShadeInfo& s) const{
                     return (false);
             }
             else {
-                if (object_ptr && object_ptr->hit(ray, tmin, s) && (tmin < tz_next)) {
+                if (object_ptr && object_ptr->hit(ray, tmin, s) && (tmin <= tz_next)) {
                     material_ptr = object_ptr->get_material();
                     return (true);
                 }

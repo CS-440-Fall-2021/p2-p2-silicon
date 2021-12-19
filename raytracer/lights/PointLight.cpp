@@ -10,7 +10,9 @@ void PointLight::set_location(float _x, float _y, float _z)
 }
 
 Vector3D PointLight::get_direction(const ShadeInfo& src) const{
-    return (location - src.hit_point);
+    Vector3D ans = location - src.hit_point;
+    ans.normalize();
+    return ans;
 }
 
 RGBColor PointLight::L(const ShadeInfo& src) const{

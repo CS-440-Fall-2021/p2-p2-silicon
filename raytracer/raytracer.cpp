@@ -21,8 +21,8 @@ int main(int argc, char **argv)
   
 
   // Uncomment lines below to enable acceleration structure
-  world.set_acceleration_structure();
-  world.AP->setup_cells();
+  // world.set_acceleration_structure();
+  // world.AP->setup_cells();
   
   world.camera_ptr->render_scene(world);
  

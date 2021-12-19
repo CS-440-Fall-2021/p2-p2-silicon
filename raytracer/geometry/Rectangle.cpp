@@ -153,7 +153,7 @@ Rectangle::hit(const Ray& ray, float& tmin, ShadeInfo& sr) const {
 	
 	double t = (p0 - ray.o) * normal / (ray.d * normal); 
 	
-	if (t <= kEpsilon)
+	if (t < kEpsilon)
 		return (false);
 			
 	Point3D p = ray.o + t * ray.d;
