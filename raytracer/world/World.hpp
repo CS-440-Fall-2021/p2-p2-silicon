@@ -13,6 +13,7 @@
 #include <vector>
 
 #include "../utilities/RGBColor.hpp"
+#include "../acceleration/acceleration.hpp"
 
 #include "ViewPlane.hpp"
 
@@ -35,6 +36,7 @@ public:
   Tracer *tracer_ptr;
   Ambient *ambient_ptr;
   std::vector<Light*> lights;
+  Acceleration* AP;
 
 public:
   // Constructors.
@@ -48,6 +50,7 @@ public:
   void set_camera(Camera *c_ptr);
   void add_light(Light *light_ptr);
   void set_ambient_light(Ambient* ambient_ptr);
+  void set_acceleration_structure();
 
   // Build scene - add all geometry, materials, lights, viewplane, camera,
   // samplers, and acceleration structures

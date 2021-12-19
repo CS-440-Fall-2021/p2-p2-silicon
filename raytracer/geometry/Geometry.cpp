@@ -13,3 +13,7 @@ void Geometry::set_material(Material *mPtr)
 {
     material_ptr = mPtr;
 }
+
+void Geometry::add_object(Geometry* object) {
+
+}

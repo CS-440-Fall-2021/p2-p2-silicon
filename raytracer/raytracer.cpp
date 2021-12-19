@@ -18,6 +18,8 @@ int main(int argc, char **argv)
 {
   World world;
   world.build();
+  
+  // world.set_acceleration_structure();
   world.camera_ptr->render_scene(world);
  
 

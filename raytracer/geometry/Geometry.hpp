@@ -39,6 +39,8 @@ public:
   // Ray intersection. Set t and sinfo as per intersection with this object.
   virtual bool hit(const Ray &ray, float &t, ShadeInfo &sinfo) const = 0;
 
+
+  virtual void add_object(Geometry* object);
   // Get bounding box.
   virtual BBox getBBox() const = 0;
 };

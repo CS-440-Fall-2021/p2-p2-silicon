@@ -5,6 +5,7 @@
 #include "../utilities/ShadeInfo.hpp"
 #include "../utilities/Constants.hpp"
 #include "../lights/Ambient.hpp"
+#include "../acceleration/grid.hpp"
 
 World::World() : camera_ptr(nullptr), sampler_ptr(nullptr), tracer_ptr(nullptr), ambient_ptr(nullptr)
 {
@@ -48,16 +49,29 @@ ShadeInfo World::hit_objects(const Ray &ray)
     final.t = kHugeValue;
     float t = 0.0;
 
-
-    for (int i = 0; i < (int) geometry.size(); i++)
-    {
-        bool hit_flag = geometry[i]->hit(ray, t, tmp);
-
-        if (hit_flag && final.t > t)
-        {
-            final = tmp;
+    if(AP == false){
+        for(auto& G: geometry){
+            G->hit(ray, final.t, final);
         }
     }
+    else{
+        AP->hit(ray, final);
+    }
+
+    // Seems redundant
+    // for (int i = 0; i < (int) geometry.size(); i++)
+    // {
+    //     bool hit_flag = geometry[i]->hit(ray, t, tmp);
+
+    //     if (hit_flag && final.t > t)
+    //     {
+    //         final = tmp;
+    //     }
+    // }
 
     return final;
+}
+
+void World::set_acceleration_structure() {
+    AP = new Grid(geometry);
 }
