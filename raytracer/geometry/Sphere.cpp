@@ -76,6 +76,9 @@ bool Sphere::hit(const Ray &ray, float &t,ShadeInfo &s) const
 
 BBox Sphere::getBBox() const
 {
-    BBox a;
-    return a;
+   Vector3D offset = Vector3D(r);
+    Point3D globalmin = c - offset;
+    Point3D globalmax = c + offset;
+    BBox bb(globalmin, globalmax);
+    return bb;
 }

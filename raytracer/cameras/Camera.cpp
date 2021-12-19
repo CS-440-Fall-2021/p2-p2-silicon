@@ -19,7 +19,8 @@ Camera::Camera(Point3D eye_, Point3D lookat_, Vector3D up_, float exp_t)
 void
 Camera::compute_uvw(void)
 {
-    w = lookat - eye;
+    // w = lookat - eye;
+    w = eye - lookat;
     w.normalize();
     u = up ^ w;
     u.normalize();

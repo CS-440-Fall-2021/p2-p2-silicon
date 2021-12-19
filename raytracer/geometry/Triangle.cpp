@@ -85,6 +85,5 @@ bool Triangle::hit(const Ray &ray, float &t, ShadeInfo &sr) const
 // TODO
 BBox Triangle::getBBox() const
 {
-    BBox a;
-    return a;
+   return BBox(min(min(v0, v1), v2), max(max(v0, v1), v2));
 }

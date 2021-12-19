@@ -66,7 +66,7 @@ void Pinhole::render_scene(World &w)
             // Divide color by num of samples (rays.size) * exposure time
             pixel_color /= rays.size();
             // Save color to image.
-            image.set_pixel(x, y, pixel_color);
+            image.set_pixel(y, x, pixel_color);
             // std::cout << pixel_color << "\n";
         }
     }

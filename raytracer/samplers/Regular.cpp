@@ -24,12 +24,12 @@ Regular &Regular::operator=(const Regular &other)
 
 void Regular::generate_samples()
 {
-    for (size_t x = 0; x < viewplane_ptr->hres; x++)
+    for (int x = 0; x < viewplane_ptr->hres; x++)
     {
-        for (size_t y = 0; y < viewplane_ptr->vres; y++)
+        for (int y = 0; y < viewplane_ptr->vres; y++)
         {
-            for(size_t p = 0; p < num_samples; p++){
-                for(size_t q = 0; q < num_samples; q++){
+            for(int p = 0; p < num_samples; p++){
+                for(int q = 0; q < num_samples; q++){
                     float x_coord = viewplane_ptr->top_left.x + ((float)x / (float)viewplane_ptr->hres) *
                                     (viewplane_ptr->bottom_right.x - viewplane_ptr->top_left.x) + (q + 0.5)/num_samples;
 
@@ -51,11 +51,14 @@ std::vector<Ray> Regular::get_rays(int px, int py) const
 
     // add into top left the px values scaled from hres range 
     // into the viewplane range
-    
-    Point3D origin = samples[ py * viewplane_ptr->hres + px];
-    
-    Ray ray(origin, camera_ptr->ray_direction(origin));
-    rays.push_back(ray);
+    for(int p = 0; p < num_samples; p++){
+        for(int q = 0; q < num_samples; q++){
+            Point3D origin = samples[ py * viewplane_ptr->hres + px + p*num_samples + q];
+            
+            Ray ray(origin, camera_ptr->ray_direction(origin));
+            rays.push_back(ray);
+        }
+    }
 
     return rays;
 }

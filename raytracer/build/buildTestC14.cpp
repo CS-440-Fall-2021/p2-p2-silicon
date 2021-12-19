@@ -34,11 +34,11 @@
 void
 World::build(void) {
   // view plane  
-  vplane.top_left.x = -200;
-  vplane.top_left.y = 200;
+  vplane.top_left.x = -200/2;
+  vplane.top_left.y = 200/2;
   vplane.top_left.z = 100;
-  vplane.bottom_right.x = 200;
-  vplane.bottom_right.y = -200;
+  vplane.bottom_right.x = 200/2;
+  vplane.bottom_right.y = -200/2;
   vplane.bottom_right.z = 100;
   vplane.hres = 400;
   vplane.vres = 400;
@@ -48,13 +48,14 @@ World::build(void) {
   bg_color = black;  // background color.
   
   // camera and sampler.
-  // Camera *cam = new Pinhole();
-  // cam->set_eye(0, 0, 200);
-  // cam->set_lookat(0, 0, 0);
-  // cam->set_view_distance(100);
-  Camera *cam = new Pinhole(Point3D(-320, 240, -310), Point3D(-320, 240, 0), 300);
+  Camera *cam = new Pinhole();
+  cam->set_eye(0, 0, 200);
+  cam->set_lookat(0, 0, 0);
+  cam->set_view_distance(100);
+  // Camera *cam = new Pinhole(Point3D(-320, 240, -310), Point3D(-320, 240, 0), 300);
   cam->compute_uvw();
   set_camera(cam);
+  
   sampler_ptr = new Simple(camera_ptr, &vplane);
   // sampler_ptr = new Random(camera_ptr, &vplane, 16);
   // sampler_ptr = new Regular(camera_ptr, &vplane, 16);

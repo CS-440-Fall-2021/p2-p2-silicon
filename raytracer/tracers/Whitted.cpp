@@ -3,7 +3,7 @@
 #include "../utilities/ShadeInfo.hpp"
 #include "../materials/Material.hpp"
 #include "../world/World.hpp"
-
+#include <iostream>
 Whitted::Whitted(World *world) : Tracer(world)
 {
 }

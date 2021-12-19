@@ -83,6 +83,16 @@ Point3D Point3D::operator*(const float s) const
     return pt3d; 
 }
 
+Point3D Point3D::operator-(const float s) const
+{
+    Point3D pt(*this);
+    pt.x -= s;
+    pt.y -= s;
+    pt.z -= s;
+
+    return pt;
+}
+
 float Point3D::d_squared(const Point3D &p) const
 {
     float tmpx = (float) pow(p.x - x, 2);
@@ -105,18 +115,12 @@ Point3D operator*(const float a, const Point3D &pt)
 
 Point3D min(const Point3D& a, const Point3D& b)
 {
-    Point3D origin;
-    float d1 = a.distance(origin);
-    float d2 = b.distance(origin);
-
-    // return a if distance from origin lesser than b
-    // else return b
-    return d1 < d2 ? a : b;
+    return Point3D(std::min(a.x, b.x), std::min(a.y, b.y), std::min(a.z, b.z));
 }
 
 Point3D max(const Point3D& a, const Point3D& b)
 {
-    return min(a, b) == a ? b : a;
+    return Point3D(std::max(a.x, b.x), std::max(a.y, b.y), std::max(a.z, b.z));
 }
 
 // ! TESTING PURPOSES !

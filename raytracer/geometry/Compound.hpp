@@ -6,8 +6,8 @@
 
 using namespace std;
 
-class Compound: public Geometry{
-    private:
+class Compound: public Geometry {
+    protected:
         vector<Geometry*> objects;
     public:
         //Constructora

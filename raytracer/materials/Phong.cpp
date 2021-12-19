@@ -2,6 +2,7 @@
 #include "../world/World.hpp"
 #include "../lights/Light.hpp"
 #include "../lights/Ambient.hpp"
+#include <iostream>
 
 Phong::Phong() : ambient_brdf(new Lambertian), diffuse_brdf(new Lambertian),
     specular_brdf(new GlossySpecular)
@@ -63,7 +64,9 @@ RGBColor Phong::shade(const ShadeInfo &s) const
         Vector3D wi = s.w->lights[j]->get_direction(s);
         float ndotwi = s.normal * wi;
         if (ndotwi > 0.0)
+        {
             L += (diffuse_brdf->f(s, wo, wi) +specular_brdf->f(s, wo, wi)) *s.w->lights[j]->L(s) * ndotwi;
+        }
     }
     return (L);
 }

@@ -6,8 +6,10 @@
 #include "../utilities/Ray.hpp"
 
 #include "../geometry/Geometry.hpp"
+#include "../geometry/Compound.hpp"
 
-class Acceleration{
+
+class Acceleration : public Compound {
     public:
         //Constructors
         Acceleration() = default;
@@ -19,4 +21,6 @@ class Acceleration{
 
         //Destructor
         virtual ~Acceleration() = default;
+
+        virtual void setup_cells() = 0;
 };

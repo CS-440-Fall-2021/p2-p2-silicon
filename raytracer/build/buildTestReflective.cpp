@@ -53,7 +53,7 @@ World::build(void) {
   // cam->set_eye(0, 0, -50);
   // cam->set_lookat(0, 0, 0);
   // cam->set_view_distance(10);
-  Camera *cam = new Pinhole(Point3D(-320, 240, -100), Point3D(-320, 240, 0), 1000);
+  Camera *cam = new Pinhole(Point3D(-320, 240, 100), Point3D(-320, 240, 0), 1000);
   cam->compute_uvw();
   set_camera(cam);
   sampler_ptr = new Simple(camera_ptr, &vplane);

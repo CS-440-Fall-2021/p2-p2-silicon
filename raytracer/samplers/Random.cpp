@@ -2,6 +2,7 @@
 #include "../utilities/Ray.hpp"
 #include "../world/ViewPlane.hpp"
 #include "../cameras/Camera.hpp"
+#include <random>
 
 Random::Random(Camera *c_ptr, ViewPlane *v_ptr, int num_samp) : Sampler(c_ptr, v_ptr, num_samp)
 {
@@ -24,11 +25,11 @@ Random &Random::operator=(const Random &other)
 
 void Random::generate_samples()
 {
-    for (size_t x = 0; x < viewplane_ptr->hres; x++)
+    for (int x = 0; x < viewplane_ptr->hres; x++)
     {
-        for (size_t y = 0; y < viewplane_ptr->vres; y++)
+        for (int y = 0; y < viewplane_ptr->vres; y++)
         {
-            for(size_t s = 0; s < num_samples; s++){
+            for(int s = 0; s < num_samples; s++){
                 float x_coord = viewplane_ptr->top_left.x + ((float)x / (float)viewplane_ptr->hres) *
                                 (viewplane_ptr->bottom_right.x - viewplane_ptr->top_left.x) + ((float)rand() / (float)RAND_MAX);
 
@@ -50,11 +51,14 @@ std::vector<Ray> Random::get_rays(int px, int py) const
 
     // add into top left the px values scaled from hres range 
     // into the viewplane range
-    
-    Point3D origin = samples[ py * viewplane_ptr->hres + px];
-    
-    Ray ray(origin, camera_ptr->ray_direction(origin));
-    rays.push_back(ray);
+    for (int i = 0; i < num_samples; i++)
+    {
+        Point3D origin = samples[ py * viewplane_ptr->hres + px + i];
+        
+        Ray ray(origin, camera_ptr->ray_direction(origin));
+        rays.push_back(ray);
 
-    return rays;
+    }
+
+    return rays;    
 }

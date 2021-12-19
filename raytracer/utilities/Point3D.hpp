@@ -33,6 +33,7 @@ public:
   // Arithmetic.
   Point3D operator-() const;                  // unary minus.
   Vector3D operator-(const Point3D &p) const; // vector joining two points
+  Point3D operator-(const float s) const; // vector joining two points
   Point3D operator+(const Vector3D &v) const; // addition of a vector
   Point3D operator-(const Vector3D &v) const; // subtraction of a vector
   bool operator==(const Point3D &p) const; // equality of a point

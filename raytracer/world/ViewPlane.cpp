@@ -1,6 +1,6 @@
 #include "ViewPlane.hpp"
 
-ViewPlane::ViewPlane() : hres(640), vres(480), normal(0, 0, 1)
+ViewPlane::ViewPlane() : normal(0, 0, 1), hres(640), vres(480)
 {
 
     top_left.x = -320;
