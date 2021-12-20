@@ -57,11 +57,7 @@ void Pinhole::render_scene(World &w)
             // weighted sum of the shades for each ray.
             RGBColor pixel_color(0);
             rays = sampler->get_rays(x, y);
-            
-            if (x==375 && y == 335)
-            {
-                std::cout<<"";
-            }
+
             for (const auto &ray : rays)
             {
                 pixel_color += w.tracer_ptr->trace_ray(ray, 0);

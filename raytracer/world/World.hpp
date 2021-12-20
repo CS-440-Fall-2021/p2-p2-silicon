@@ -51,6 +51,9 @@ public:
   void add_light(Light *light_ptr);
   void set_ambient_light(Ambient* ambient_ptr);
   void set_acceleration_structure();
+  void add_obj(const char *path, Material *mPtr);
+  void add_ply(std::string fname, Material *mPtr, Point3D bottom,
+                    Point3D top, bool makeSmooth);
 
   // Build scene - add all geometry, materials, lights, viewplane, camera,
   // samplers, and acceleration structures

@@ -73,6 +73,11 @@ World::build(void) {
   pt_light->set_location(30, 50, 25);
   pt_light->scale_radiance(3.0);
   add_light(pt_light2);
+ 
+  PointLight *pt_light3 = new PointLight();
+  pt_light->set_location(0, 0, 25);
+  pt_light->scale_radiance(3.0);
+  add_light(pt_light3);
 
 
   // colors
@@ -261,9 +266,9 @@ World::build(void) {
   sphere_ptr35->set_material(new Matte(0.25, 0.65, lightPurple));  // light purple
   add_geometry(sphere_ptr35);
 	
-  // vertical plane
-  Plane* plane_ptr = new Plane(Point3D(0, 0, -150), Vector3D(0, 0, 1));
-  plane_ptr->set_material(new Matte(0.25, 0.65, grey));
-  add_geometry(plane_ptr);
+  // // vertical plane
+  // Plane* plane_ptr = new Plane(Point3D(0, 0, -150), Vector3D(0, 0, 1));
+  // plane_ptr->set_material(new Matte(0.25, 0.65, grey));
+  // add_geometry(plane_ptr);
 }
 

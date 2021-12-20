@@ -43,6 +43,7 @@ RGBColor GlossySpecular::f(const ShadeInfo& sr, const Vector3D& wi, const Vector
 }
 RGBColor GlossySpecular::sample_f(const ShadeInfo& sr, Vector3D& wi, const Vector3D& wo) const{
 
+return black;
 }
 
 RGBColor GlossySpecular::sample_f(const ShadeInfo& sr, Vector3D& wi, const Vector3D& wo,float& pdf) const{
@@ -60,6 +61,7 @@ RGBColor GlossySpecular::sample_f(const ShadeInfo& sr, Vector3D& wi, const Vecto
     // float phong_lobe = pow(r * wi, exp);
     // pdf = phong_lobe * (sr.normal * wi);
     // return (ks * cs * phong_lobe);
+    return black;
 }
 
 RGBColor GlossySpecular::rho(const ShadeInfo& sr, const Vector3D& wo) const{

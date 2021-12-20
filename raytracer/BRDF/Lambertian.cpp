@@ -27,7 +27,7 @@ RGBColor Lambertian::f(const ShadeInfo& sr, const Vector3D& wi, const Vector3D& 
 }
 
 RGBColor Lambertian::sample_f(const ShadeInfo& sr, Vector3D& wi, const Vector3D& wo) const{
-
+    return black;
 }
 RGBColor Lambertian::sample_f(const ShadeInfo& sr, Vector3D& wi, const Vector3D& wo, float& pdf) const{
     // Vector3D w = sr.normal;
@@ -41,6 +41,7 @@ RGBColor Lambertian::sample_f(const ShadeInfo& sr, Vector3D& wi, const Vector3D&
     // pdf = sr.normal * wi * invPI;
 
     // return (kd * cd * invPI);
+    return black;
 }
 
 RGBColor Lambertian::rho(const ShadeInfo& sr, const Vector3D& wo) const{

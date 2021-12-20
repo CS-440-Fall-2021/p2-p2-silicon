@@ -8,8 +8,9 @@
 #include "../acceleration/grid.hpp"
 
 World::World() : camera_ptr(nullptr), sampler_ptr(nullptr), 
-    tracer_ptr(nullptr), ambient_ptr(nullptr), AP(nullptr)
+    tracer_ptr(nullptr), ambient_ptr(new Ambient), AP(nullptr)
 {
+    ambient_ptr->scale_radiance(0.0);
 }
 
 
@@ -36,6 +37,7 @@ void World::set_camera(Camera *c_ptr)
 
 void World::set_ambient_light(Ambient *a)
 {
+    delete ambient_ptr;
     ambient_ptr = a;
 }
 
@@ -47,7 +49,7 @@ ShadeInfo World::hit_objects(const Ray &ray)
 
     final.hit = false;
     final.t = kHugeValue;
-    float t = 0.0;
+    float t = kHugeValue;
     bool hit_flag = false;
 
     if (AP == nullptr)

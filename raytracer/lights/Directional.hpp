@@ -9,7 +9,7 @@ class Directional: public Light{
         
     public:
         Directional();
-        ~Directional() = default;
+        virtual ~Directional() = default;
         virtual Vector3D get_direction(const ShadeInfo& src) const;
         void set_direction(const Vector3D& d);
         void set_direction(float x, float y, float z);

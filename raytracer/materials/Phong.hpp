@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../materials/Material.hpp"
 #include "../BRDF/Lambertian.hpp"
 #include "../BRDF/GlossySpecular.hpp"

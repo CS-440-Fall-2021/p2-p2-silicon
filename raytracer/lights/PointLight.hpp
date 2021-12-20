@@ -9,7 +9,7 @@ class PointLight: public Light{
         
     public:
         PointLight();
-        ~PointLight() = default;
+        virtual ~PointLight() = default;
 
         void set_location(float _x, float _y, float _z);
         virtual Vector3D get_direction(const ShadeInfo& src) const;
