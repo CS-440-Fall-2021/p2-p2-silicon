@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 
 #include "materials/Cosine.hpp"
 
@@ -20,9 +21,14 @@ int main(int argc, char **argv)
   world.build();
   
 
-  // Uncomment lines below to enable acceleration structure
-  // world.set_acceleration_structure();
-  // world.AP->setup_cells();
+  if (argc > 1 && (strcmp(argv[1], "accel") == 0) )
+  {
+    std::cout << "Accelerating!\n";
+    world.set_acceleration_structure();
+    world.AP->setup_cells();
+  }
+  
+  
   
   world.camera_ptr->render_scene(world);
  
