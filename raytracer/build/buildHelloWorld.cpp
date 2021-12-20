@@ -67,7 +67,13 @@ World::build(void) {
 
 
   //////////// COSINE //////////////////
+
+//    // sphere
+//   Sphere* sphere_ptr = new Sphere(Point3D(-3, 2, 0), 5); 
+//   sphere_ptr->set_material(new Cosine(red));
+//   add_geometry(sphere_ptr);
   
+<<<<<<< Updated upstream
     // colors
   RGBColor yellow(1, 1, 0);  // yellow
   RGBColor brown(0.71, 0.40, 0.16);  // brown
@@ -79,6 +85,20 @@ World::build(void) {
   RGBColor lightPurple(0.65, 0.3, 1);  // light purple
   RGBColor darkPurple(0.5, 0, 1);  // dark purple
   RGBColor grey(0.25);  // grey
+=======
+//   // triangle
+//   Point3D a(2.5, -5, 1); 
+//   Point3D b(14, -1, 0); 
+//   Point3D c(8.5, 5, 0.5); 
+//   Triangle* triangle_ptr = new Triangle(a, b, c);
+//   triangle_ptr->set_material(new Cosine(blue));
+//   add_geometry(triangle_ptr);
+
+//   // plane
+//   Plane* plane_ptr = new Plane(Point3D(0,1,0), Vector3D(0, 10, 2)); 
+//   plane_ptr->set_material(new Cosine(green));  // green
+//   add_geometry(plane_ptr);
+>>>>>>> Stashed changes
 
 
 
@@ -124,6 +144,7 @@ World::build(void) {
 
  //////// REFLECTIVE /////////
 
+<<<<<<< Updated upstream
     Reflective* reflective_ptr1 = new Reflective;
     reflective_ptr1->set_ka(0.25);
     reflective_ptr1->set_kd(0.5);
@@ -166,4 +187,52 @@ World::build(void) {
   Plane* plane_ptr = new Plane(Point3D(0,1,0), Vector3D(0, 10, 2)); 
   plane_ptr->set_material(reflective_ptr3);  // green
   add_geometry(plane_ptr);
+=======
+  //   RGBColor brown(0.71, 0.40, 0.16);  // brown
+  //   Reflective* reflective_ptr1 = new Reflective;
+  //   reflective_ptr1->set_ka(0.25);
+  //   reflective_ptr1->set_kd(0.5);
+  //   reflective_ptr1->set_cd(black);
+  //   reflective_ptr1->set_ks(0.25);
+  //   reflective_ptr1->set_exp(100);
+  //   reflective_ptr1->set_kr(0.75);
+  //   reflective_ptr1->set_cr(white);
+
+  //   Reflective* reflective_ptr2 = new Reflective;
+  //   reflective_ptr2->set_ka(0.25);
+  //   reflective_ptr2->set_kd(0.5);
+  //   reflective_ptr2->set_cd(blue);
+  //   reflective_ptr2->set_ks(0.25);
+  //   reflective_ptr2->set_exp(100);
+  //   reflective_ptr2->set_kr(0.75);
+  //   reflective_ptr2->set_cr(white);
+
+  //   Reflective* reflective_ptr3 = new Reflective;
+  //   reflective_ptr3->set_ka(0.25);
+  //   reflective_ptr3->set_kd(0.5);
+  //   reflective_ptr3->set_cd(red);
+  //   reflective_ptr3->set_ks(0.25);
+  //   reflective_ptr3->set_exp(100);
+  //   reflective_ptr3->set_kr(0.75);
+  //   reflective_ptr3->set_cr(white);
+
+  //    // sphere
+  // Sphere* sphere_ptr = new Sphere(Point3D(-3, 2, 0), 5); 
+  // sphere_ptr->set_material(reflective_ptr1);
+  // add_geometry(sphere_ptr);
+  
+  // // triangle
+  // Point3D a(2.5, -5, 1); 
+  // Point3D b(14, -1, 0); 
+  // Point3D c(8.5, 5, 0.5); 
+  // Triangle* triangle_ptr = new Triangle(a, b, c);
+  // triangle_ptr->set_material(reflective_ptr2);
+  // add_geometry(triangle_ptr);
+
+  // // plane
+  // Plane* plane_ptr = new Plane(Point3D(0,1,0), Vector3D(0, 10, 2)); 
+  // plane_ptr->set_material(reflective_ptr3);  // green
+  // add_geometry(plane_ptr);
+
+>>>>>>> Stashed changes
 }

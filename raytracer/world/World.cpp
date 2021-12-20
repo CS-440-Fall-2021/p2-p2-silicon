@@ -8,7 +8,11 @@
 #include "../acceleration/grid.hpp"
 
 World::World() : camera_ptr(nullptr), sampler_ptr(nullptr), 
+<<<<<<< Updated upstream
     tracer_ptr(nullptr), ambient_ptr(new Ambient), AP(nullptr)
+=======
+    tracer_ptr(nullptr), ambient_ptr(new Ambient()), AP(nullptr)
+>>>>>>> Stashed changes
 {
     ambient_ptr->scale_radiance(0.0);
 }

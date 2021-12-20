@@ -73,6 +73,7 @@
 //   RGBColor darkPurple(0.5, 0, 1);  // dark purple
 //   RGBColor grey(0.25);  // grey
 	
+<<<<<<< Updated upstream:raytracer/build/buildMvp.cpp
 //   // Background color.
 //   bg_color = grey;
 
@@ -127,5 +128,22 @@ void World::build(void)
         Sphere *sphere_ptr = new Sphere(Point3D(randomX, randomY, 0), 3);
         sphere_ptr->set_material(new Cosine(c));
         add_geometry(sphere_ptr);
+=======
+  // Background color.
+  bg_color = grey;
+
+  // for (int x = -3200; x <= 3200; x += 2) {
+  //   for (int y = -3200; y <= 3200; y += 2) {
+  //     Sphere* s = new Sphere(Point3D(x, y, 0), 1);
+  //     s->set_material(new Matte((x + 3200.0) / 6400.0, 0, (y + 3200.0) / 6400.0));
+  //     add_geometry(s);
+  //   }
+  // }
+  for (int x = -10; x <= 10; x += 2) {
+    for (int y = -10; y <= 10; y += 2) {
+      Sphere* s = new Sphere(Point3D(x, y, 0), 1);
+      s->set_material(new Matte((x + 10.0) / 20.0, 0, (y + 20.0) / 20.0));
+      add_geometry(s);
+>>>>>>> Stashed changes:raytracer/build/build10M.cpp
     }
 }
