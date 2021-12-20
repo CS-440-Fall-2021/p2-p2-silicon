@@ -99,3 +99,9 @@ There is a lot to handle and there are bound to be confusions and queries. Pleas
 - Only include images which you are comfortable sharing publicly.
 - There is no late submission. Submit whatever you have by the deadline.
 - viel Spaß!
+
+# Demo Link
+
+The demo is live at https://habib-university.github.io/team-apricus/.
+It contains scene information, as well as renders demonstrating the functionalities of the raytracer.
+Compilation instructions are included therein.
